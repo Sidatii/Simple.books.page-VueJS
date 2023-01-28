@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="dist/output.css">
+    <style>
+        div .fav{
+            background-color: aquamarine;
+        }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        
+
+        <div>
+            <div v-if="ShowBooks" style="width: 500px; display: flex; gap: 10px; flex-direction: column; justify-self: center; align-self: center;">
+                <div @click="book.isFav = !book.isFav" :class="{fav: book.isFav}" v-for="book in filteredBooks" style="width: 500px; display: flex; gap: 10px; padding: 10px;">
+                    <img style="width: 200px;" :src="book.image" :alt="book.title">
+                    <h3>{{book.title}}</h3>
+                    <h5>{{book.author}}</h5>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button @click="toggleShow">
+            <span v-if="ShowBooks">Hide books</span>
+            <span v-else>Show books</span>
+        </button>
+
+        <!-- <div @mouseover="handleEvent($event, 5)">Mouse Over</div>
+        <br><br><br> -->
+        <!-- <div @mousemove="mousemove">X = {{X}} - Y = {{Y}}</div> -->
+        
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
